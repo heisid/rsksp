@@ -1,5 +1,5 @@
-#include "defs.h"
-#include "universe.h"
+#include "system.h"
+#include <raylib.h>
 #include <raymath.h>
 
 void updatePosition(Universe *universe) {
