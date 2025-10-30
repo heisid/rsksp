@@ -28,6 +28,6 @@ typedef struct {
 typedef struct {
   unsigned int width;
   unsigned int height;
-} SquareComp;
+} RectangleComp;
 
 #endif

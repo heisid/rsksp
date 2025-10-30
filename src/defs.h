@@ -13,8 +13,8 @@ typedef unsigned int EntityId;
 #define COMP_POSITION_FLAG (1 << 0)
 #define COMP_VELOCITY_FLAG (1 << 1)
 #define COMP_COLOR_FLAG (1 << 2)
-#define COMP_ROUND_FLAG (1 << 3)
+#define COMP_CIRCLE_FLAG (1 << 3)
 #define COMP_TRIANGLE_FLAG (1 << 4)
-#define COMP_SQUARE_FLAG (1 << 5)
+#define COMP_RECTANGLE_FLAG (1 << 5)
 
 #endif
