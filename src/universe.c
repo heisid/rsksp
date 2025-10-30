@@ -6,35 +6,35 @@ bool hasComponent(Universe *universe, unsigned int entityId,
   return (universe->mask[entityId] & componentFlag) != 0;
 }
 
-void activateEntity(Universe *universe, unsigned int entityId) {
-  universe->active[entityId] = true;
+void activateEntity(Universe *universe, EntityId id) {
+  universe->active[id] = true;
 }
 
-void deactivateEntity(Universe *universe, unsigned int entityId) {
-  universe->active[entityId] = false;
+void deactivateEntity(Universe *universe, EntityId id) {
+  universe->active[id] = false;
 }
 
-void setPosition(Universe *universe, unsigned int entityId, Vector2 position) {
-  universe->mask[entityId] |= COMP_POSITION_FLAG;
-  universe->position[entityId].position = position;
+void attachPosition(Universe *universe, EntityId id, Vector2 position) {
+  universe->mask[id] |= COMP_POSITION_FLAG;
+  universe->position[id].position = position;
 }
 
-void setVelocity(Universe *universe, unsigned int entityId, Vector2 velocity) {
-  universe->mask[entityId] |= COMP_VELOCITY_FLAG;
-  universe->position[entityId].position = velocity;
+void attachVelocity(Universe *universe, EntityId id, Vector2 velocity) {
+  universe->mask[id] |= COMP_VELOCITY_FLAG;
+  universe->position[id].position = velocity;
 }
 
-void setRound(Universe *universe, unsigned int entityId, unsigned int radius) {
-  universe->mask[entityId] =
+void attachCircle(Universe *universe, EntityId id, float radius) {
+  universe->mask[id] =
       (~(COMP_TRIANGLE_FLAG | COMP_SQUARE_FLAG)) | COMP_ROUND_FLAG;
-  universe->round[entityId].radius = radius;
+  universe->round[id].radius = radius;
 }
 
-void setTriangle(Universe *universe, unsigned int entityId, Vector2 a,
-                 Vector2 b, Vector2 c) {
-  universe->mask[entityId] =
+void attachTriangle(Universe *universe, EntityId id, Vector2 a, Vector2 b,
+                    Vector2 c) {
+  universe->mask[id] =
       (~(COMP_ROUND_FLAG | COMP_SQUARE_FLAG)) | COMP_TRIANGLE_FLAG;
-  universe->triangle[entityId].a = a;
-  universe->triangle[entityId].b = b;
-  universe->triangle[entityId].c = c;
+  universe->triangle[id].a = a;
+  universe->triangle[id].b = b;
+  universe->triangle[id].c = c;
 }

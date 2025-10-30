@@ -18,7 +18,13 @@ typedef struct {
 
 } Universe;
 
-bool hasComponent(Universe *universe, unsigned int entityId,
-                  unsigned int componentFlag);
+bool hasComponent(Universe *universe, EntityId id, unsigned int componentFlag);
+void activateEntity(Universe *universe, EntityId id);
+void deactivateEntity(Universe *universe, EntityId id);
+void attachPosition(Universe *universe, EntityId id, Vector2 position);
+void attachVelocity(Universe *universe, EntityId id, Vector2 velocity);
+void attachCircle(Universe *universe, EntityId id, float radius);
+void attachTriangle(Universe *universe, EntityId id, Vector2 a, Vector2 b,
+                    Vector2 c);
 
 #endif

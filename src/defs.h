@@ -6,6 +6,8 @@ extern const int SCREEN_HEIGHT;
 extern const int CENTER_WIDTH;
 extern const int CENTER_HEIGHT;
 
+typedef unsigned int EntityId;
+
 #define MAX_ENTITIES 5000
 
 #define COMP_POSITION_FLAG (1 << 0)
