@@ -9,14 +9,21 @@
 int main() {
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "RSKSP");
 
-  Universe *universe = malloc(sizeof(Universe));
-  EntityId testEntity = createEntity(universe);
-  attachCircle(universe, testEntity, 20);
-  attachColor(universe, testEntity, RED);
-  Vector2 position = {CENTER_WIDTH, CENTER_HEIGHT};
-  attachPosition(universe, testEntity, position);
+  Universe *universe = createUniverse();
+
+  for (int i=0; i<20; i++) {
+    EntityId entity = createEntity(universe);
+    int posX = rand() % SCREEN_WIDTH + 1;
+    int posY = rand() % SCREEN_HEIGHT + 1;
+    Vector2 a = {posX, posY};
+    Vector2 b = {posX+25, posY-50};
+    Vector2 c = {posX-25, posY-50};
+    attachTriangle(universe, entity, a, b, c);
+    attachColor(universe, entity, RED);
+  }
 
   while (!WindowShouldClose()) {
+    updatePosition(universe);
     BeginDrawing();
     ClearBackground(BLACK);
 

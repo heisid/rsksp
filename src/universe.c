@@ -1,7 +1,15 @@
 #include "universe.h"
+
+#include <stdlib.h>
+
 #include "defs.h"
 
-bool hasComponent(Universe *universe, unsigned int entityId,
+Universe* createUniverse() {
+  Universe *universe = malloc(sizeof(Universe));
+  universe->entityCount = 0;
+  return universe;
+}
+bool hasComponent(const Universe *universe, unsigned int entityId,
                   unsigned int componentFlag) {
   return (universe->mask[entityId] & componentFlag) != 0;
 }
@@ -27,7 +35,7 @@ void attachPosition(Universe *universe, EntityId id, Vector2 position) {
 
 void attachVelocity(Universe *universe, EntityId id, Vector2 velocity) {
   universe->mask[id] |= COMP_VELOCITY_FLAG;
-  universe->position[id].position = velocity;
+  universe->velocity[id].velocity = velocity;
 }
 
 void attachColor(Universe *universe, EntityId id, Color color) {

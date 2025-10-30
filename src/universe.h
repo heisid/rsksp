@@ -18,7 +18,9 @@ typedef struct {
 
 } Universe;
 
-bool hasComponent(Universe *universe, EntityId id, unsigned int componentFlag);
+Universe* createUniverse();
+
+bool hasComponent(const Universe *universe, EntityId id, unsigned int componentFlag);
 
 EntityId createEntity(Universe *universe);
 void killEntity(Universe *universe, EntityId id);
