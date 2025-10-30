@@ -22,7 +22,7 @@ bool hasComponent(Universe *universe, EntityId id, unsigned int componentFlag);
 
 EntityId createEntity(Universe *universe);
 void killEntity(Universe *universe, EntityId id);
-void resurectEntity(Universe *universe, EntityId id);
+void resurrectEntity(Universe *universe, EntityId id);
 
 void attachPosition(Universe *universe, EntityId id, Vector2 position);
 void attachVelocity(Universe *universe, EntityId id, Vector2 velocity);

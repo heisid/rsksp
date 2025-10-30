@@ -32,7 +32,7 @@ INCLUDES := -I$(RAYLIB_DIR)/src -I$(RAYGUI_DIR)/src
 LDFLAGS  := -L$(RAYLIB_DIR)/src
 LIBS     := -lraylib -lm -lpthread -ldl -lGL -lX11 -lrt
 
-CFLAGS := -std=c11 -O2 -Wall $(INCLUDES)
+CFLAGS := -g -std=c11 -O2 -Wall $(INCLUDES)
 
 # =====================
 # Targets

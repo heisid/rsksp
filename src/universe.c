@@ -7,7 +7,7 @@ bool hasComponent(Universe *universe, unsigned int entityId,
 }
 
 EntityId createEntity(Universe *universe) {
-  EntityId id = universe->entityCount++;
+  const EntityId id = universe->entityCount++;
   universe->active[id] = true;
   return id;
 }
@@ -16,7 +16,7 @@ void killEntity(Universe *universe, EntityId id) {
   universe->active[id] = false;
 }
 
-void resurectEntity(Universe *universe, EntityId id) {
+void resurrectEntity(Universe *universe, EntityId id) {
   universe->active[id] = true;
 }
 
@@ -35,16 +35,16 @@ void attachColor(Universe *universe, EntityId id, Color color) {
   universe->color[id].color = color;
 }
 
-void attachCircle(Universe *universe, EntityId id, float radius) {
-  universe->mask[id] =
-      (~(COMP_TRIANGLE_FLAG | COMP_RECTANGLE_FLAG)) | COMP_CIRCLE_FLAG;
+void attachCircle(Universe *universe, const EntityId id, float radius) {
+  universe->mask[id] &= ~(COMP_TRIANGLE_FLAG|COMP_RECTANGLE_FLAG);
+  universe->mask[id] |= COMP_CIRCLE_FLAG;
   universe->round[id].radius = radius;
 }
 
 void attachTriangle(Universe *universe, EntityId id, Vector2 a, Vector2 b,
                     Vector2 c) {
-  universe->mask[id] =
-      (~(COMP_CIRCLE_FLAG | COMP_RECTANGLE_FLAG)) | COMP_TRIANGLE_FLAG;
+  universe->mask[id] &= ~(COMP_CIRCLE_FLAG|COMP_RECTANGLE_FLAG);
+  universe->mask[id] |= COMP_TRIANGLE_FLAG;
   universe->triangle[id].a = a;
   universe->triangle[id].b = b;
   universe->triangle[id].c = c;

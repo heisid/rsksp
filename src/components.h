@@ -26,8 +26,8 @@ typedef struct {
 } TriangleComp;
 
 typedef struct {
-  unsigned int width;
-  unsigned int height;
+  int width;
+  int height;
 } RectangleComp;
 
 #endif

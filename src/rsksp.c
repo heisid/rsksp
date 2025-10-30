@@ -11,9 +11,7 @@ int main() {
 
   Universe *universe = malloc(sizeof(Universe));
   EntityId testEntity = createEntity(universe);
-  printf("created entityId: %u\n", testEntity);
   attachCircle(universe, testEntity, 20);
-  printf("flag after attach c-comp: %u\n", universe->mask[testEntity]);
   attachColor(universe, testEntity, RED);
   Vector2 position = {CENTER_WIDTH, CENTER_HEIGHT};
   attachPosition(universe, testEntity, position);
